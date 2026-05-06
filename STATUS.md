@@ -1,9 +1,9 @@
 # Deshkari Studios — Build Status
 
 **Last updated:** 2026-05-06
-**Current phase:** Phase 0 — Scaffolding & foundation (in progress)
-**Overall progress:** Phase 0 mid-completion — config files written, npm install pending
-**Next up:** Run `npm install`, verify dev server, then begin Phase 1 (constants + UI primitives)
+**Current phase:** Phase 2 — Layout shell (starting)
+**Overall progress:** Phase 0 ✅, Phase 1 ✅ — all data + primitives ready, dev server still clean
+**Next up:** Phase 2 — replace TopBar/Navbar/Footer stubs with real components, build PageHero, wire pages to navigation data
 
 ---
 
@@ -16,9 +16,9 @@
 ---
 
 ## Phase summary
-- [~] **Phase 0** — Scaffolding & foundation
-- [ ] **Phase 1** — Constants & UI primitives
-- [ ] **Phase 2** — Layout shell (TopBar, Navbar, Footer, PageHero)
+- [x] **Phase 0** — Scaffolding & foundation                    (2026-05-06, commit bfe76b3)
+- [x] **Phase 1** — Constants & UI primitives                   (2026-05-06)
+- [~] **Phase 2** — Layout shell (TopBar, Navbar, Footer, PageHero)
 - [ ] **Phase 3** — Home page (12 sections)
 - [ ] **Phase 4** — About page (8 sections)
 - [ ] **Phase 5** — Portfolio page (filter + grid + CTA)
@@ -49,26 +49,26 @@
 - [x] `netlify.toml` (publish=dist, SPA redirect, security headers)
 - [x] `public/favicon.svg` (saffron square + white "D")
 - [x] `STATUS.md` (this file)
-- [ ] `npm install` (run + verify lockfile)
-- [ ] `npm run dev` (boot at http://localhost:5173 with zero console errors)
-- [ ] `git init` + initial commit
+- [x] `npm install` — 144 packages, 15s, no errors
+- [x] `npm run dev` — boots in 1.4s on http://localhost:5173, all module files (main.jsx / App.jsx / index.css) return 200
+- [x] `git init` + initial commit (bfe76b3 on main)
 
 ### Phase 1 — Constants & UI primitives
-- [ ] `src/constants/navigation.js`
-- [ ] `src/constants/team.js`
-- [ ] `src/constants/services.js`
-- [ ] `src/constants/portfolio.js`
-- [ ] `src/constants/blog.js`
-- [ ] `src/constants/testimonials.js`
-- [ ] `src/constants/stats.js`
-- [ ] `src/constants/offices.js`
-- [ ] `src/constants/gallery.js`
-- [ ] `src/constants/partners.js`
-- [ ] `src/constants/timeline.js`
-- [ ] `src/constants/heroSlides.js`
-- [ ] `src/hooks/useScrollReveal.js` (+ `fadeUpVariants`, `staggerVariants`)
-- [ ] `src/components/ui/Button.jsx`
-- [ ] `src/components/ui/SectionLabel.jsx`
+- [x] `src/constants/navigation.js` — nav links, footer secondary, services, socials, contactInfo
+- [x] `src/constants/team.js` — 4 members with social links
+- [x] `src/constants/services.js` — 6 services with Lucide icon names
+- [x] `src/constants/portfolio.js` — 6 categories + 6 items
+- [x] `src/constants/blog.js` — 3 posts + recent + categories + 10 tags
+- [x] `src/constants/testimonials.js` — 3 testimonials with photos
+- [x] `src/constants/stats.js` — 2x2 main stats + 3 inline about stats
+- [x] `src/constants/offices.js` — 3 offices + map embed src
+- [x] `src/constants/gallery.js` — gallery, footer thumbs, video bg, hero per page
+- [x] `src/constants/partners.js` — 6 partners + 6 cert icons
+- [x] `src/constants/timeline.js` — 4 milestones 2022–2025
+- [x] `src/constants/heroSlides.js` — 3 hero slides
+- [x] `src/hooks/useScrollReveal.js` (+ `fadeUpVariants`, `fadeInVariants`, `staggerVariants`)
+- [x] `src/components/ui/Button.jsx` — primary / outline / outline-dark, with Link/anchor/button modes + arrow
+- [x] `src/components/ui/SectionLabel.jsx` — supports `accent`, `color` (gold/maroon for verticals), `centered`
 
 ### Phase 2 — Layout shell (replaces stubs)
 - [ ] `TopBar.jsx` (40px dark, contact info)
