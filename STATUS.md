@@ -1,9 +1,9 @@
 # Deshkari Studios — Build Status
 
 **Last updated:** 2026-05-06
-**Current phase:** Phase 4 — About page (starting)
-**Overall progress:** Phases 0–3 ✅ — Home page fully built, production build green (240 KB gzip)
-**Next up:** Phase 4 — About page sections (8 components, several reuse from Home)
+**Current phase:** Phase 9 — Polish, responsive, accessibility (starting)
+**Overall progress:** Phases 0–8 ✅ — every page is built and live. All 10 routes return HTTP 200, prod build 248 KB gzip in 3.2s.
+**Next up:** Phase 9 polish — verify mobile breakpoints, line-clamp utility, image lazy-loading, alt text audit, focus rings, Lighthouse pass
 
 ---
 
@@ -20,12 +20,12 @@
 - [x] **Phase 1** — Constants & UI primitives                   (2026-05-06)
 - [x] **Phase 2** — Layout shell (TopBar, Navbar, Footer, PageHero) (2026-05-06)
 - [x] **Phase 3** — Home page (12 sections + 5 UI primitives) (2026-05-06)
-- [~] **Phase 4** — About page (8 sections)
-- [ ] **Phase 5** — Portfolio page (filter + grid + CTA)
-- [ ] **Phase 6** — Blog + BlogSingle
-- [ ] **Phase 7** — Contact page
-- [ ] **Phase 8** — Vertical pages (Productions / Events / Films)
-- [ ] **Phase 9** — Polish, responsive, accessibility
+- [x] **Phase 4** — About page (8 sections, several reuse Home) (2026-05-06)
+- [x] **Phase 5** — Portfolio page (filter + 3x2 AnimatePresence grid + CTA) (2026-05-06)
+- [x] **Phase 6** — Blog list (65/35 layout) + BlogSingle article + Sidebar (6 widgets) + Pagination (2026-05-06)
+- [x] **Phase 7** — Contact page (Map + 3 office cards + EmailJS form) (2026-05-06)
+- [x] **Phase 8** — Vertical pages with shared template (Productions=gold, Events=saffron, Films=maroon) (2026-05-06)
+- [~] **Phase 9** — Polish, responsive, accessibility
 - [ ] **Phase 10** — Build, deploy prep, smoke test
 
 ---
@@ -95,37 +95,42 @@
 - [x] Production build succeeds (3.1s, 240 KB gzip)
 
 ### Phase 4 — About page
-- [ ] `AboutIntro.jsx`
-- [ ] `CertificatesStrip.jsx`
-- [ ] `ServicesSection.jsx` (about-specific copy)
-- [ ] `VideoCTASection.jsx`
-- [ ] `TeamSection.jsx` (reuse)
-- [ ] `PartnerStripOrange.jsx`
-- [ ] `TimelineSection.jsx` (4 milestones 2022–2025)
-- [ ] `CTASection.jsx`
+- [x] `AboutIntro.jsx` (image stack + intro copy)
+- [x] `CertificatesStrip.jsx` (4 cards, lucide-icon + title/subtitle)
+- [x] `AboutServicesSection.jsx` (3-col, "Learn More" links)
+- [x] `VideoCTASection.jsx` (centered play button on dark)
+- [x] `TeamSection` (reuse from Home)
+- [x] `PartnerStripOrange.jsx` (full saffron bg, 6 white badges)
+- [x] `TimelineSection.jsx` (2-col grid, orange dots, vertical accent line, 4 milestones 2022–2025, View More button)
+- [x] `CTASection.jsx` (split + decorative variant for Portfolio reuse)
 
 ### Phase 5 — Portfolio page
-- [ ] `PortfolioFilter.jsx` (6 tabs)
-- [ ] `PortfolioGrid.jsx` (3x2 with framer-motion AnimatePresence)
-- [ ] `PortfolioItem.jsx` (saffron hover overlay)
-- [ ] `CTASection.jsx` (reuse)
+- [x] `PortfolioFilter.jsx` (6 tabs in pill container)
+- [x] `PortfolioGrid.jsx` (filterable 3x2 with framer-motion AnimatePresence + popLayout)
+- [x] `PortfolioItem.jsx` (saffron hover overlay + plus icon + caption)
+- [x] `CTASection` (reuse from About with `decorative` prop for swirl shapes)
 
 ### Phase 6 — Blog + BlogSingle
-- [ ] `BlogList.jsx` (65% column, 3 posts/page)
-- [ ] `Sidebar.jsx` (Search, Recent, Categories, Social, Tags, Promo)
-- [ ] `Pagination.jsx` (circular)
-- [ ] `BlogSingle.jsx` (article view)
+- [x] `BlogList.jsx` (65% column, 3 posts with image + title + meta + excerpt + Read More)
+- [x] `Sidebar.jsx` (Search, Recent Posts, Categories, Social Profiles, Tags, Promo box)
+- [x] `Pagination.jsx` (circular page numbers + prev/next + accessible aria-current)
+- [x] `BlogSingle.jsx` (PageHero w/ post image, full article body w/ blockquote, Sidebar reuse, back-to-blog + work-with-us CTAs)
 
 ### Phase 7 — Contact page
-- [ ] `MapSection.jsx` (Google Maps iframe Pune)
-- [ ] `OfficeCards.jsx` (3-col)
-- [ ] `ContactForm.jsx` (EmailJS, underline inputs, validation states)
+- [x] `MapSection.jsx` (Google Maps iframe Pune/Chinchwad, 420px height, lazy-loaded)
+- [x] `OfficeCards.jsx` (3-col, Pune main / Mumbai coming-soon / Pan-India remote, hover shadow)
+- [x] `ContactForm.jsx` (EmailJS-wired with dev fallback if keys missing, underline inputs, name/email/phone/subject/message, idle/loading/success/error states)
 
 ### Phase 8 — Vertical pages
-- [ ] `VerticalPageTemplate.jsx` (shared base)
-- [ ] `Productions.jsx` (gold accent)
-- [ ] `Events.jsx` (saffron accent)
-- [ ] `Films.jsx` (maroon accent)
+- [x] `VerticalPageTemplate.jsx` (4-section shared base: hero + intro w/ image stack + offerings 3-col + featured work 6-grid + CTA)
+- [x] `Productions.jsx` (gold #B8860B accent — Music & Album Production)
+- [x] `Events.jsx` (saffron — Live Cultural Experiences)
+- [x] `Films.jsx` (maroon #6B1A1A accent — Authentic Indian Stories)
+
+### Smoke test (post Phase 8)
+- [x] All 10 routes return HTTP 200: /, /about, /productions, /events, /films, /portfolio, /blog, /blog/:slug, /contact, /404
+- [x] Production build: 3.2s, 248 KB gzip
+- [x] HMR clean throughout
 
 ### Phase 9 — Polish, responsive, accessibility
 - [ ] Mobile breakpoints verified at 375/768/1024/1440

@@ -1,4 +1,6 @@
 import PageHero from '../components/layout/PageHero.jsx';
+import PortfolioGrid from '../components/sections/portfolio/PortfolioGrid.jsx';
+import CTASection from '../components/sections/about/CTASection.jsx';
 import { pageHeroImages } from '../constants/gallery';
 
 export default function Portfolio() {
@@ -9,9 +11,8 @@ export default function Portfolio() {
         breadcrumb={[{ label: 'Deshkari Studios', path: '/' }, { label: 'Portfolios' }]}
         bgImage={pageHeroImages.portfolio}
       />
-      <section className="container-x py-section">
-        <p className="text-body">[Phase 5 — Portfolio filter + grid go here.]</p>
-      </section>
+      <PortfolioGrid heading={false} />
+      <CTASection decorative />
     </>
   );
 }
