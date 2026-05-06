@@ -1,9 +1,9 @@
 # Deshkari Studios — Build Status
 
 **Last updated:** 2026-05-06
-**Current phase:** Phase 3 — Home page (starting)
-**Overall progress:** Phase 0 ✅, 1 ✅, 2 ✅ — full layout shell live, all 10 routes return HTTP 200
-**Next up:** Phase 3 — build the 12 Home page sections starting with HeroSlider
+**Current phase:** Phase 4 — About page (starting)
+**Overall progress:** Phases 0–3 ✅ — Home page fully built, production build green (240 KB gzip)
+**Next up:** Phase 4 — About page sections (8 components, several reuse from Home)
 
 ---
 
@@ -19,8 +19,8 @@
 - [x] **Phase 0** — Scaffolding & foundation                    (2026-05-06, commit bfe76b3)
 - [x] **Phase 1** — Constants & UI primitives                   (2026-05-06)
 - [x] **Phase 2** — Layout shell (TopBar, Navbar, Footer, PageHero) (2026-05-06)
-- [~] **Phase 3** — Home page (12 sections)
-- [ ] **Phase 4** — About page (8 sections)
+- [x] **Phase 3** — Home page (12 sections + 5 UI primitives) (2026-05-06)
+- [~] **Phase 4** — About page (8 sections)
 - [ ] **Phase 5** — Portfolio page (filter + grid + CTA)
 - [ ] **Phase 6** — Blog + BlogSingle
 - [ ] **Phase 7** — Contact page
@@ -79,19 +79,20 @@
 - [x] Smoke test: all 10 routes return HTTP 200, HMR clean, no console errors
 
 ### Phase 3 — Home page (12 sections)
-- [ ] `HeroSlider.jsx` (3 slides, 5s autoplay, arrows, dots)
-- [ ] `AboutPreview.jsx` (image stack + stats row)
-- [ ] `PartnersStrip.jsx`
-- [ ] `VideoSection.jsx` (dark overlay, 3 thumbs)
-- [ ] `ServicesSection.jsx` (3-col Lucide icons)
-- [ ] `GallerySection.jsx` (3-col flush + hover overlay)
-- [ ] `TeamSection.jsx`
-- [ ] `TestimonialsSection.jsx`
-- [ ] `StatsSection.jsx` (2x2)
-- [ ] `NewsletterSection.jsx`
-- [ ] `BlogPreviewSection.jsx` (full saffron bg)
-- [ ] `CertStripBottom.jsx` (#1c1c1c bar)
-- [ ] UI primitives created on demand: `TeamCard`, `ServiceCard`, `BlogCard`, `StatBox`, `TestimonialCard`
+- [x] `HeroSlider.jsx` (3 slides, 5s autoplay, fade transition, arrows + dots, route-aware CTAs)
+- [x] `AboutPreview.jsx` (image stack with -20px overlap + stats row 12+/150+/25+)
+- [x] `PartnersStrip.jsx` (6 grayscale partner badges with hover saffron)
+- [x] `VideoSection.jsx` (dark overlay, 3 stacked thumbnails with central play button)
+- [x] `ServicesSection.jsx` (3-col Lucide-icon grid, 6 services, staggered reveal)
+- [x] `GallerySection.jsx` (3-col flush 4:3 with dark hover overlay + play icon + caption)
+- [x] `TeamSection.jsx` (4-col team grid; B&W → color on hover, social icons reveal)
+- [x] `TestimonialsSection.jsx` (single carousel, 7s autoplay, AnimatePresence wait mode, dot pagination)
+- [x] `StatsSection.jsx` (2-col split: text + 2x2 stats grid)
+- [x] `NewsletterSection.jsx` (underline-style email input + Subscribe button, idle/loading/success states)
+- [x] `BlogPreviewSection.jsx` (full saffron `#C45911` bg, dark BlogCard variant)
+- [x] `CertStripBottom.jsx` (`#1c1c1c` dark strip with 6 cert icons)
+- [x] UI primitives: `TeamCard`, `ServiceCard`, `BlogCard` (default + dark variants), `StatBox`, `TestimonialCard`
+- [x] Production build succeeds (3.1s, 240 KB gzip)
 
 ### Phase 4 — About page
 - [ ] `AboutIntro.jsx`

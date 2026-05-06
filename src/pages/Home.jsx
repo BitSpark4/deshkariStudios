@@ -1,10 +1,31 @@
-// Phase 3 builds the 12 sections of the Home page.
+import HeroSlider from '../components/sections/home/HeroSlider.jsx';
+import AboutPreview from '../components/sections/home/AboutPreview.jsx';
+import PartnersStrip from '../components/sections/home/PartnersStrip.jsx';
+import VideoSection from '../components/sections/home/VideoSection.jsx';
+import ServicesSection from '../components/sections/home/ServicesSection.jsx';
+import GallerySection from '../components/sections/home/GallerySection.jsx';
+import TeamSection from '../components/sections/home/TeamSection.jsx';
+import TestimonialsSection from '../components/sections/home/TestimonialsSection.jsx';
+import StatsSection from '../components/sections/home/StatsSection.jsx';
+import NewsletterSection from '../components/sections/home/NewsletterSection.jsx';
+import BlogPreviewSection from '../components/sections/home/BlogPreviewSection.jsx';
+import CertStripBottom from '../components/sections/home/CertStripBottom.jsx';
+
 export default function Home() {
   return (
-    <div className="container-x py-section">
-      <p className="section-label">Home</p>
-      <h1 className="text-h2 text-heading">We Make Films & Events That People Love</h1>
-      <p className="mt-4 text-body">[Phase 3 — Home page content goes here.]</p>
-    </div>
+    <>
+      <HeroSlider />
+      <AboutPreview />
+      <PartnersStrip />
+      <VideoSection />
+      <ServicesSection />
+      <GallerySection />
+      <TeamSection />
+      <TestimonialsSection />
+      <StatsSection />
+      <NewsletterSection />
+      <BlogPreviewSection />
+      <CertStripBottom />
+    </>
   );
 }
