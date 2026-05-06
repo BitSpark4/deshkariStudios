@@ -1,10 +1,17 @@
-// Phase 4 fills in the About page sections.
+import PageHero from '../components/layout/PageHero.jsx';
+import { pageHeroImages } from '../constants/gallery';
+
 export default function About() {
   return (
-    <div className="container-x py-section">
-      <p className="section-label">About Us</p>
-      <h1 className="text-h2 text-heading">About</h1>
-      <p className="mt-4 text-body">[Phase 4 — About sections go here.]</p>
-    </div>
+    <>
+      <PageHero
+        title="About"
+        breadcrumb={[{ label: 'Deshkari Studios', path: '/' }, { label: 'About' }]}
+        bgImage={pageHeroImages.about}
+      />
+      <section className="container-x py-section">
+        <p className="text-body">[Phase 4 — About sections will fill this in.]</p>
+      </section>
+    </>
   );
 }

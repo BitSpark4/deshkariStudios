@@ -1,10 +1,17 @@
-// Phase 7 fills Map + OfficeCards + ContactForm.
+import PageHero from '../components/layout/PageHero.jsx';
+import { pageHeroImages } from '../constants/gallery';
+
 export default function Contact() {
   return (
-    <div className="container-x py-section">
-      <p className="section-label">Any Questions?</p>
-      <h1 className="text-h2 text-heading">Let's Talk</h1>
-      <p className="mt-4 text-body">[Phase 7 — Contact map, offices, form go here.]</p>
-    </div>
+    <>
+      <PageHero
+        title="Contact"
+        breadcrumb={[{ label: 'Deshkari Studios', path: '/' }, { label: 'Contact' }]}
+        bgImage={pageHeroImages.contact}
+      />
+      <section className="container-x py-section">
+        <p className="text-body">[Phase 7 — Map, offices, form go here.]</p>
+      </section>
+    </>
   );
 }

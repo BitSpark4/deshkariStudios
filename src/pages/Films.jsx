@@ -1,10 +1,18 @@
-// Phase 8 fills the Films vertical page.
+import PageHero from '../components/layout/PageHero.jsx';
+import { pageHeroImages } from '../constants/gallery';
+
 export default function Films() {
   return (
-    <div className="container-x py-section">
-      <p className="section-label" style={{ color: '#6B1A1A' }}>Films</p>
-      <h1 className="text-h2 text-heading">Authentic Indian Stories on Screen</h1>
-      <p className="mt-4 text-body">[Phase 8 — Films content goes here.]</p>
-    </div>
+    <>
+      <PageHero
+        title="Films"
+        breadcrumb={[{ label: 'Deshkari Studios', path: '/' }, { label: 'Films' }]}
+        bgImage={pageHeroImages.films}
+        accentColor="#6B1A1A"
+      />
+      <section className="container-x py-section">
+        <p className="text-body">[Phase 8 — Authentic Indian Stories on Screen content.]</p>
+      </section>
+    </>
   );
 }

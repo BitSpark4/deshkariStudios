@@ -1,10 +1,17 @@
-// Phase 6 fills the Blog list + sidebar + pagination.
+import PageHero from '../components/layout/PageHero.jsx';
+import { pageHeroImages } from '../constants/gallery';
+
 export default function Blog() {
   return (
-    <div className="container-x py-section">
-      <p className="section-label">Read Our Latest</p>
-      <h1 className="text-h2 text-heading">News & Blog</h1>
-      <p className="mt-4 text-body">[Phase 6 — Blog list and sidebar go here.]</p>
-    </div>
+    <>
+      <PageHero
+        title="Blog"
+        breadcrumb={[{ label: 'Deshkari Studios', path: '/' }, { label: 'Blog' }]}
+        bgImage={pageHeroImages.blog}
+      />
+      <section className="container-x py-section">
+        <p className="text-body">[Phase 6 — Blog list + sidebar go here.]</p>
+      </section>
+    </>
   );
 }

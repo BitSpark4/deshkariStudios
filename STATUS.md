@@ -1,9 +1,9 @@
 # Deshkari Studios — Build Status
 
 **Last updated:** 2026-05-06
-**Current phase:** Phase 2 — Layout shell (starting)
-**Overall progress:** Phase 0 ✅, Phase 1 ✅ — all data + primitives ready, dev server still clean
-**Next up:** Phase 2 — replace TopBar/Navbar/Footer stubs with real components, build PageHero, wire pages to navigation data
+**Current phase:** Phase 3 — Home page (starting)
+**Overall progress:** Phase 0 ✅, 1 ✅, 2 ✅ — full layout shell live, all 10 routes return HTTP 200
+**Next up:** Phase 3 — build the 12 Home page sections starting with HeroSlider
 
 ---
 
@@ -18,8 +18,8 @@
 ## Phase summary
 - [x] **Phase 0** — Scaffolding & foundation                    (2026-05-06, commit bfe76b3)
 - [x] **Phase 1** — Constants & UI primitives                   (2026-05-06)
-- [~] **Phase 2** — Layout shell (TopBar, Navbar, Footer, PageHero)
-- [ ] **Phase 3** — Home page (12 sections)
+- [x] **Phase 2** — Layout shell (TopBar, Navbar, Footer, PageHero) (2026-05-06)
+- [~] **Phase 3** — Home page (12 sections)
 - [ ] **Phase 4** — About page (8 sections)
 - [ ] **Phase 5** — Portfolio page (filter + grid + CTA)
 - [ ] **Phase 6** — Blog + BlogSingle
@@ -71,10 +71,12 @@
 - [x] `src/components/ui/SectionLabel.jsx` — supports `accent`, `color` (gold/maroon for verticals), `centered`
 
 ### Phase 2 — Layout shell (replaces stubs)
-- [ ] `TopBar.jsx` (40px dark, contact info)
-- [ ] `Navbar.jsx` (sticky, scroll compress 70→60, mobile hamburger drawer with framer-motion)
-- [ ] `Footer.jsx` (4-col grid, social, services list, gallery thumbs, bottom bar)
-- [ ] `PageHero.jsx` (reusable banner — title + breadcrumb + bgImage)
+- [x] `TopBar.jsx` (40px dark, welcome+contact info, hides text on small screens)
+- [x] `Navbar.jsx` (sticky, scroll-compress 70→60, mobile hamburger drawer with framer-motion + body-scroll-lock + auto-close on route change)
+- [x] `Footer.jsx` (4-col responsive grid, social row, contact info, services list, gallery thumbs, bottom bar with copyright + secondary nav)
+- [x] `PageHero.jsx` (reusable banner — title + breadcrumb + bgImage + accentColor override for verticals)
+- [x] All 10 page stubs wired to PageHero with vertical accent colors (Productions=gold, Films=maroon)
+- [x] Smoke test: all 10 routes return HTTP 200, HMR clean, no console errors
 
 ### Phase 3 — Home page (12 sections)
 - [ ] `HeroSlider.jsx` (3 slides, 5s autoplay, arrows, dots)

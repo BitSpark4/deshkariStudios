@@ -1,10 +1,17 @@
-// Phase 8 fills the Events vertical page.
+import PageHero from '../components/layout/PageHero.jsx';
+import { pageHeroImages } from '../constants/gallery';
+
 export default function Events() {
   return (
-    <div className="container-x py-section">
-      <p className="section-label">Events</p>
-      <h1 className="text-h2 text-heading">Live Cultural Experiences</h1>
-      <p className="mt-4 text-body">[Phase 8 — Events content goes here.]</p>
-    </div>
+    <>
+      <PageHero
+        title="Events"
+        breadcrumb={[{ label: 'Deshkari Studios', path: '/' }, { label: 'Events' }]}
+        bgImage={pageHeroImages.events}
+      />
+      <section className="container-x py-section">
+        <p className="text-body">[Phase 8 — Live Cultural Experiences content.]</p>
+      </section>
+    </>
   );
 }
