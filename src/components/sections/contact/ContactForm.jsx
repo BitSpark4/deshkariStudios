@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import SectionLabel from '../../ui/SectionLabel.jsx';
@@ -9,33 +9,58 @@ const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+const RECIPIENT_EMAIL = 'team@deshkaristudios.com';
+
+const initialForm = { name: '', email: '', phone: '', subject: '', message: '' };
+
 export default function ContactForm() {
   const { ref, controls } = useScrollReveal();
-  const formRef = useRef(null);
+  const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
   const [errorMsg, setErrorMsg] = useState('');
+
+  const onChange = (e) => {
+    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  };
+
+  const resetForm = () => setForm(initialForm);
 
   const onSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
     setErrorMsg('');
 
+    // Dev fallback when EmailJS keys aren't configured yet — simulate a successful send.
     if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-      // Demo / dev fallback when EmailJS keys aren't set yet.
       setTimeout(() => {
         setStatus('success');
-        formRef.current?.reset();
+        resetForm();
       }, 800);
       return;
     }
 
     try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY });
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          phone: form.phone,
+          subject: form.subject,
+          message: form.message,
+          to_email: RECIPIENT_EMAIL,
+        },
+        { publicKey: PUBLIC_KEY }
+      );
       setStatus('success');
-      formRef.current?.reset();
+      resetForm();
     } catch (err) {
       console.error('EmailJS error:', err);
-      setErrorMsg(err?.text || 'Something went wrong. Please try again or email us directly.');
+      setErrorMsg(
+        err?.text ||
+          `Something went wrong. Please email us directly at ${RECIPIENT_EMAIL}.`
+      );
       setStatus('error');
     }
   };
@@ -52,7 +77,10 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
             <SectionLabel>Any Questions?</SectionLabel>
-            <h2 className="text-heading font-rubik font-bold mb-5" style={{ fontSize: 42, lineHeight: 1.15 }}>
+            <h2
+              className="text-heading font-rubik font-bold mb-5"
+              style={{ fontSize: 42, lineHeight: 1.15 }}
+            >
               Let's Talk
             </h2>
             <p className="text-body font-rubik" style={{ fontSize: 15, lineHeight: 1.75 }}>
@@ -63,7 +91,6 @@ export default function ContactForm() {
           </div>
 
           <form
-            ref={formRef}
             onSubmit={onSubmit}
             className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6"
             aria-label="Contact form"
@@ -74,6 +101,8 @@ export default function ContactForm() {
                 id="cf-name"
                 type="text"
                 name="name"
+                value={form.name}
+                onChange={onChange}
                 placeholder="Your Name"
                 required
                 className="form-input"
@@ -85,6 +114,8 @@ export default function ContactForm() {
                 id="cf-email"
                 type="email"
                 name="email"
+                value={form.email}
+                onChange={onChange}
                 placeholder="Your Email"
                 required
                 className="form-input"
@@ -96,6 +127,8 @@ export default function ContactForm() {
                 id="cf-phone"
                 type="tel"
                 name="phone"
+                value={form.phone}
+                onChange={onChange}
                 placeholder="Your Phone"
                 className="form-input"
               />
@@ -106,6 +139,8 @@ export default function ContactForm() {
                 id="cf-subject"
                 type="text"
                 name="subject"
+                value={form.subject}
+                onChange={onChange}
                 placeholder="Your Subject"
                 required
                 className="form-input"
@@ -116,6 +151,8 @@ export default function ContactForm() {
               <textarea
                 id="cf-message"
                 name="message"
+                value={form.message}
+                onChange={onChange}
                 placeholder="Your Message"
                 required
                 rows={4}
@@ -130,7 +167,6 @@ export default function ContactForm() {
                 variant="primary"
                 disabled={status === 'loading'}
                 showArrow={status !== 'loading'}
-                onClick={undefined}
               >
                 {status === 'loading' ? 'Sending…' : 'Send Message'}
               </Button>
@@ -146,7 +182,7 @@ export default function ContactForm() {
                     borderRadius: 4,
                   }}
                 >
-                  Your message has been sent! We'll respond within 48 hours.
+                  Message sent! We'll reply within 48 hours.
                 </p>
               )}
               {status === 'error' && (

@@ -55,22 +55,24 @@ export default function Footer() {
               Built for the World.
             </p>
             <ul className="flex items-center gap-2 mt-5">
-              {socials.map((s) => {
-                const Icon = socialIcons[s.icon] ?? Facebook;
-                return (
-                  <li key={s.label}>
-                    <a
-                      href={s.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={s.label}
-                      className="flex items-center justify-center w-9 h-9 rounded-full border border-[#333] text-[#888888] transition-colors hover:text-primary hover:border-primary"
-                    >
-                      <Icon size={14} aria-hidden />
-                    </a>
-                  </li>
-                );
-              })}
+              {socials
+                .filter((s) => s.visible)
+                .map((s) => {
+                  const Icon = socialIcons[s.icon] ?? Facebook;
+                  return (
+                    <li key={s.label}>
+                      <a
+                        href={s.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={s.label}
+                        className="flex items-center justify-center w-9 h-9 rounded-full border border-[#333] text-[#888888] transition-colors hover:text-primary hover:border-primary"
+                      >
+                        <Icon size={14} aria-hidden />
+                      </a>
+                    </li>
+                  );
+                })}
             </ul>
           </div>
 
@@ -85,6 +87,12 @@ export default function Footer() {
                   {contactInfo.address.line1}
                   <br />
                   {contactInfo.address.line2}
+                  {contactInfo.address.line3 && (
+                    <>
+                      <br />
+                      {contactInfo.address.line3}
+                    </>
+                  )}
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -149,7 +157,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-[#2a2a2a]">
         <div className="container-x flex flex-col md:flex-row items-center justify-between gap-4 py-5 text-xs text-[#555555]">
-          <p>Copyright © 2025 Deshkari Studios. All Rights Reserved.</p>
+          <p>Copyright © 2026 Deshkari Studios. All Rights Reserved.</p>
           <ul className="flex items-center gap-5">
             {footerSecondaryLinks.map((link) => (
               <li key={link.path}>

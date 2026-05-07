@@ -6,7 +6,7 @@ import ServicesSection from '../components/sections/home/ServicesSection.jsx';
 import GallerySection from '../components/sections/home/GallerySection.jsx';
 import TeamSection from '../components/sections/home/TeamSection.jsx';
 import TestimonialsSection from '../components/sections/home/TestimonialsSection.jsx';
-import StatsSection from '../components/sections/home/StatsSection.jsx';
+// import StatsSection — Achievements section hidden in v2; component file kept for future use.
 import NewsletterSection from '../components/sections/home/NewsletterSection.jsx';
 import BlogPreviewSection from '../components/sections/home/BlogPreviewSection.jsx';
 import CertStripBottom from '../components/sections/home/CertStripBottom.jsx';
@@ -22,7 +22,6 @@ export default function Home() {
       <GallerySection />
       <TeamSection />
       <TestimonialsSection />
-      <StatsSection />
       <NewsletterSection />
       <BlogPreviewSection />
       <CertStripBottom />

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { navLinks } from '../../constants/navigation';
+
+const visibleNavLinks = navLinks.filter((l) => l.visible);
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -58,7 +60,7 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <ul className="hidden lg:flex items-center" style={{ gap: 32 }}>
-          {navLinks.map((link) => (
+          {visibleNavLinks.map((link) => (
             <li key={link.path}>
               <NavLink
                 to={link.path}
@@ -73,15 +75,6 @@ export default function Navbar() {
               </NavLink>
             </li>
           ))}
-          <li>
-            <button
-              type="button"
-              className="text-heading hover:text-primary transition-colors"
-              aria-label="Search"
-            >
-              <Search size={16} aria-hidden />
-            </button>
-          </li>
         </ul>
 
         {/* Mobile hamburger */}
@@ -121,7 +114,7 @@ export default function Navbar() {
               aria-label="Mobile navigation"
             >
               <ul className="flex flex-col p-6 gap-1">
-                {navLinks.map((link) => (
+                {visibleNavLinks.map((link) => (
                   <li key={link.path}>
                     <NavLink
                       to={link.path}

@@ -1,9 +1,9 @@
 # Deshkari Studios — Build Status
 
-**Last updated:** 2026-05-06
-**Current phase:** Phase 9 — Polish, responsive, accessibility (starting)
-**Overall progress:** Phases 0–8 ✅ — every page is built and live. All 10 routes return HTTP 200, prod build 248 KB gzip in 3.2s.
-**Next up:** Phase 9 polish — verify mobile breakpoints, line-clamp utility, image lazy-loading, alt text audit, focus rings, Lighthouse pass
+**Last updated:** 2026-05-07
+**Current phase:** v2 improvements applied — Phase 9 polish next
+**Overall progress:** Phases 0–8 ✅ + improvmentv1.md applied (8 changes) — all 10 routes still HTTP 200, prod build 247 KB gzip in 3.9s
+**Next up:** Phase 9 polish OR user provides EmailJS keys → wire up real email delivery
 
 ---
 
@@ -159,6 +159,34 @@
 - (none currently)
 
 ---
+
+## v2 improvements applied (2026-05-07)
+Per `.claude/improvmentv1.md`:
+- [x] **Change 1** Nav: order Home·About·Films·Events·Blog·Contact; Productions/Portfolios/Search hidden via `visible: false` flag
+- [x] **Change 2** Home › About: only "Awards Received: 12+" stat shown (Years Experience + Projects Delivered hidden)
+- [x] **Change 3** Home › Our People: 2 visible team members (Founder + Co-Founder); 2-col centered grid; Heads of Productions/Events kept with `visible: false`
+- [x] **Change 4** Home › Achievements (StatsSection): import + render removed from Home.jsx; component file kept
+- [x] **Change 5** Footer: YouTube removed via `visible: false`; address = Flat 302 C Wing Sai Leela Apartment Manaji Nagar Narhe Pune 411041; phone +91 7028242253; email team@deshkaristudios.com; copyright © 2026
+- [x] **Change 6** About › Our Journey (TimelineSection): import + render removed from About.jsx; component file kept
+- [x] **Change 7** Contact › Map: embed updated to Sai Leela Apartment, Manaji Nagar, Narhe Pune 411041
+- [x] **Change 8** Contact › Form: switched to `emailjs.send` with explicit `to_email = team@deshkaristudios.com`; controlled inputs; idle/loading/success/error states preserved
+- [x] TopBar + 3 office cards (Pune/Mumbai/Pan-India) updated to new phone & email automatically (single source of truth in `constants/navigation.js` + `constants/offices.js`)
+- [x] Production build still green: 247 KB gzip in 3.9s
+
+## Pending — user must provide manually
+**EmailJS keys** (Change 8 needs these to actually deliver mail):
+1. Create account at https://www.emailjs.com
+2. Add Email Service → connect team@deshkaristudios.com (Gmail or any provider)
+3. Create Email Template with `To Email = team@deshkaristudios.com`, subject + body referencing `{{from_name}} {{from_email}} {{phone}} {{subject}} {{message}}`
+4. Copy Service ID, Template ID, Public Key
+5. Create `.env` file at project root with:
+   ```
+   VITE_EMAILJS_SERVICE_ID=...
+   VITE_EMAILJS_TEMPLATE_ID=...
+   VITE_EMAILJS_PUBLIC_KEY=...
+   ```
+6. Restart dev server (Vite reads env on boot)
+Until keys are added, the form runs in dev-fallback mode and just simulates a successful send.
 
 ## Notes for next session
 - All Unsplash image URLs will live in `src/constants/*.js` files — single swap-point when real photos arrive.

@@ -5,7 +5,7 @@ import AboutServicesSection from '../components/sections/about/AboutServicesSect
 import VideoCTASection from '../components/sections/about/VideoCTASection.jsx';
 import TeamSection from '../components/sections/home/TeamSection.jsx';
 import PartnerStripOrange from '../components/sections/about/PartnerStripOrange.jsx';
-import TimelineSection from '../components/sections/about/TimelineSection.jsx';
+// import TimelineSection — "Our Journey" section hidden in v2; component file kept for future use.
 import CTASection from '../components/sections/about/CTASection.jsx';
 import { pageHeroImages } from '../constants/gallery';
 
@@ -23,7 +23,6 @@ export default function About() {
       <VideoCTASection />
       <TeamSection />
       <PartnerStripOrange />
-      <TimelineSection />
       <CTASection />
     </>
   );

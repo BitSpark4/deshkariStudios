@@ -38,18 +38,31 @@ export default function AboutPreview() {
             </p>
             <Button to="/about">Read More</Button>
 
-            <ul className="mt-10 grid grid-cols-3 divide-x divide-border max-w-md">
-              {aboutInlineStats.map((stat) => (
-                <li key={stat.label} className="px-4 first:pl-0">
-                  <div className="text-heading font-rubik font-bold leading-none" style={{ fontSize: 28 }}>
-                    {stat.number}
-                  </div>
-                  <div className="text-body font-rubik mt-2" style={{ fontSize: 13 }}>
-                    {stat.label}
-                  </div>
-                </li>
-              ))}
-            </ul>
+            {(() => {
+              const visibleStats = aboutInlineStats.filter((s) => s.visible);
+              return (
+                <ul
+                  className={`mt-10 grid divide-x divide-border max-w-md`}
+                  style={{
+                    gridTemplateColumns: `repeat(${visibleStats.length || 1}, minmax(0, 1fr))`,
+                  }}
+                >
+                  {visibleStats.map((stat) => (
+                    <li key={stat.label} className="px-4 first:pl-0">
+                      <div
+                        className="text-heading font-rubik font-bold leading-none"
+                        style={{ fontSize: 28 }}
+                      >
+                        {stat.number}
+                      </div>
+                      <div className="text-body font-rubik mt-2" style={{ fontSize: 13 }}>
+                        {stat.label}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              );
+            })()}
           </motion.div>
 
           <motion.div
