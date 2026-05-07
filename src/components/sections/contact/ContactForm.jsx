@@ -37,6 +37,17 @@ export default function ContactForm() {
   const onSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
+
+    // Local dev: Vite doesn't process Netlify Forms — preview the success state only.
+    // Real email delivery happens on the deployed Netlify site.
+    if (import.meta.env.DEV) {
+      setTimeout(() => {
+        setStatus('success');
+        setForm(initialForm);
+      }, 600);
+      return;
+    }
+
     try {
       const res = await fetch('/', {
         method: 'POST',
