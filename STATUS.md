@@ -173,20 +173,31 @@ Per `.claude/improvmentv1.md`:
 - [x] TopBar + 3 office cards (Pune/Mumbai/Pan-India) updated to new phone & email automatically (single source of truth in `constants/navigation.js` + `constants/offices.js`)
 - [x] Production build still green: 247 KB gzip in 3.9s
 
-## Pending — user must provide manually
-**EmailJS keys** (Change 8 needs these to actually deliver mail):
-1. Create account at https://www.emailjs.com
-2. Add Email Service → connect team@deshkaristudios.com (Gmail or any provider)
-3. Create Email Template with `To Email = team@deshkaristudios.com`, subject + body referencing `{{from_name}} {{from_email}} {{phone}} {{subject}} {{message}}`
-4. Copy Service ID, Template ID, Public Key
-5. Create `.env` file at project root with:
-   ```
-   VITE_EMAILJS_SERVICE_ID=...
-   VITE_EMAILJS_TEMPLATE_ID=...
-   VITE_EMAILJS_PUBLIC_KEY=...
-   ```
-6. Restart dev server (Vite reads env on boot)
-Until keys are added, the form runs in dev-fallback mode and just simulates a successful send.
+## v2.1 form delivery — switched from EmailJS to Netlify Forms (2026-05-07)
+Per `.claude/improvementsv2.md`:
+- [x] Removed `@emailjs/browser` package — `npm uninstall` complete
+- [x] Removed VITE_EMAILJS_* keys from `.env.example`; only Maps key remains (optional)
+- [x] Added static detection form to `index.html` (hidden, parsed by Netlify build bot)
+- [x] Rewrote `ContactForm.jsx` to POST to "/" with URL-encoded body and `form-name=contact`
+- [x] Added `bot-field` honeypot for spam protection
+- [x] Production build green: 247 KB gzip in 3.0s; `dist/index.html` contains the static `<form name="contact">` for Netlify detection
+
+## Pending — user manual setup (Netlify Dashboard, no code, no keys)
+The form will only deliver email **after deploy to Netlify**:
+1. Push the project to GitHub (or drag the `dist/` folder into Netlify dashboard)
+2. Netlify auto-detects `data-netlify="true"` and `<form name="contact">` during build
+3. Netlify Dashboard → Forms → confirm "contact" form is listed
+4. Forms → Settings → Form notifications → **Add Email notification**
+   - Email to notify: **team@deshkaristudios.com**
+   - Form: **contact**
+5. Test from the live site; first submission may land in Spam — whitelist `no-reply@netlify.com`
+6. (Optional) In Gmail create a filter: from `no-reply@netlify.com` → label "Website Enquiries"
+
+Free Netlify plan = 100 form submissions/month. All submissions also visible in
+the Netlify Dashboard as a backup, even if email delivery fails.
+
+In local `npm run dev`, the form shows the success state but no email is sent —
+real delivery is only on the deployed Netlify site.
 
 ## Notes for next session
 - All Unsplash image URLs will live in `src/constants/*.js` files — single swap-point when real photos arrive.

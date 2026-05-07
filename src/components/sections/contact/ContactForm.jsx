@@ -1,66 +1,53 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import SectionLabel from '../../ui/SectionLabel.jsx';
 import Button from '../../ui/Button.jsx';
 import { useScrollReveal, fadeUpVariants } from '../../../hooks/useScrollReveal';
-
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const RECIPIENT_EMAIL = 'team@deshkaristudios.com';
 
 const initialForm = { name: '', email: '', phone: '', subject: '', message: '' };
 
+/*
+ * Submission flow (Netlify Forms — no API keys, no packages):
+ *   1. A static <form name="contact"> lives in index.html so Netlify's build bot
+ *      detects the form during deploy.
+ *   2. On submit, this React form POSTs URL-encoded data to "/" with form-name=contact.
+ *   3. Netlify routes the submission to the "contact" form, then triggers the
+ *      "Email notification" configured in the Netlify dashboard → Forms settings.
+ *
+ * Local dev: posting to "/" in `npm run dev` won't actually deliver email — the
+ * fetch resolves successfully (Vite returns index.html) and the success state shows.
+ * Real delivery happens only on the deployed Netlify site once a Forms email
+ * notification has been added pointing to team@deshkaristudios.com.
+ */
+function encode(data) {
+  return new URLSearchParams(data).toString();
+}
+
 export default function ContactForm() {
   const { ref, controls } = useScrollReveal();
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
-  const [errorMsg, setErrorMsg] = useState('');
 
   const onChange = (e) => {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
-  const resetForm = () => setForm(initialForm);
-
   const onSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
-    setErrorMsg('');
-
-    // Dev fallback when EmailJS keys aren't configured yet — simulate a successful send.
-    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-      setTimeout(() => {
-        setStatus('success');
-        resetForm();
-      }, 800);
-      return;
-    }
-
     try {
-      await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        {
-          from_name: form.name,
-          from_email: form.email,
-          phone: form.phone,
-          subject: form.subject,
-          message: form.message,
-          to_email: RECIPIENT_EMAIL,
-        },
-        { publicKey: PUBLIC_KEY }
-      );
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'contact', 'bot-field': '', ...form }),
+      });
+      if (!res.ok) throw new Error(`Network error ${res.status}`);
       setStatus('success');
-      resetForm();
+      setForm(initialForm);
     } catch (err) {
-      console.error('EmailJS error:', err);
-      setErrorMsg(
-        err?.text ||
-          `Something went wrong. Please email us directly at ${RECIPIENT_EMAIL}.`
-      );
+      console.error('Form submission failed:', err);
       setStatus('error');
     }
   };
@@ -91,10 +78,23 @@ export default function ContactForm() {
           </div>
 
           <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
             onSubmit={onSubmit}
             className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6"
             aria-label="Contact form"
           >
+            {/* Required Netlify hidden inputs */}
+            <input type="hidden" name="form-name" value="contact" />
+            <p className="hidden">
+              <label>
+                Don't fill this out if you're human:
+                <input name="bot-field" />
+              </label>
+            </p>
+
             <div>
               <label htmlFor="cf-name" className="sr-only-label">Your Name</label>
               <input
@@ -196,7 +196,7 @@ export default function ContactForm() {
                     borderRadius: 4,
                   }}
                 >
-                  {errorMsg}
+                  Something went wrong. Please email us directly at {RECIPIENT_EMAIL}.
                 </p>
               )}
             </div>
