@@ -20,19 +20,18 @@ export const portfolioItems = [
   },
   {
     id: 2,
-    title: 'Pune Music Festival 2025',
+    title: 'Mumbai Folk Akhyan',
     category: 'events',
     image:
-      'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80&auto=format&fit=crop',
+      'folk-akhyan-1.webp',
     alt: 'Crowd at outdoor music festival',
   },
   {
     id: 3,
-    title: 'Heritage Documentary',
+    title: 'Deshkari Short Film (2024)',
     category: 'films',
-    image:
-      'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80&auto=format&fit=crop',
-    alt: 'Film production with clapperboard',
+    image:'deshkar film.jpg',
+    alt: 'Film By Sanjay Daiv',
   },
   {
     id: 4,
@@ -50,12 +49,12 @@ export const portfolioItems = [
       'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=800&q=80&auto=format&fit=crop',
     alt: 'Documentary film camera setup',
   },
-  {
-    id: 6,
-    title: 'Cultural Festival — Diwali',
-    category: 'events',
-    image:
-      'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80&auto=format&fit=crop',
-    alt: 'Cultural festival lights and decoration',
-  },
+  // {
+  //   id: 6,
+  //   title: 'Cultural Festival — Diwali',
+  //   category: 'events',
+  //   image:
+  //     'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80&auto=format&fit=crop',
+  //   alt: 'Cultural festival lights and decoration',
+  // },
 ];

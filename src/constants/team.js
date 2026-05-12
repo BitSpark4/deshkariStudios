@@ -2,11 +2,10 @@
 // Heads of Productions/Events kept here as `visible: false` for future expansion.
 export const teamMembers = [
   {
-    name: 'Aarav Deshkari',
+    name: 'Aniket Lad',
     role: 'Founder & Managing Director',
-    image:
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop&crop=faces',
-    alt: 'Portrait of Aarav Deshkari',
+    image:'aniket_lad_profile.jpeg',
+    alt: 'Portrait of Aniket Lad',
     visible: true,
     socials: {
       instagram: 'https://instagram.com',

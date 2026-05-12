@@ -25,10 +25,12 @@ export default function VideoCTASection() {
         className="relative container-x flex flex-col items-center justify-center text-center py-section"
         style={{ minHeight: 400 }}
       >
-        <button
-          type="button"
+        <a
+          href="https://www.filmfare.com/awards/short-films-2024/finalists/deshkari/4089"
+          target="_blank"
+          rel="noopener noreferrer"
           aria-label="Play showreel"
-          className="group flex items-center justify-center mb-6 transition-colors"
+          className="group flex items-center justify-center mb-6 transition-transform hover:scale-110 active:scale-95"
           style={{
             width: 72,
             height: 72,
@@ -43,9 +45,9 @@ export default function VideoCTASection() {
             fill="currentColor"
             aria-hidden
           />
-        </button>
+        </a>
         <p className="font-rubik text-white font-medium" style={{ fontSize: 18 }}>
-          Watch Our Latest Showreel
+          Watch out "Deshkari" in Filmfare Short Film Awards 2024!
         </p>
       </motion.div>
     </section>

@@ -21,8 +21,7 @@ export const heroSlides = [
       'From documentary to feature, our films honour the cultural heritage of India and reach audiences across the world.',
     primaryCta: { text: 'Our Films', to: '/films' },
     secondaryCta: { text: 'Watch Our Reel', to: '/portfolio' },
-    image:
-      'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&q=80&auto=format&fit=crop',
+    image:'DSC06848.JPG.jpeg',
     alt: 'Film production behind the scenes',
   },
   {
