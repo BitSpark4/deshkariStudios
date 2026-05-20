@@ -1,32 +1,37 @@
 export const testimonials = [
   {
     id: 1,
-    quote:
-      'Deshkari Studios understood our cultural brief from day one. The classical fusion album they produced for our foundation has been received warmly across India and abroad.',
-    name: 'Dr. Anjali Sharma',
-    role: 'Director, Indian Heritage Trust',
+    quote: 'Folk Aakhyan’s show felt nothing short of a miracle. All the children performed with incredible energy and enthusiasm, lifting the entire atmosphere and holding everyone’s attention beautifully.',
+    name: 'Amruta Subhash',
+    role: 'Actress',
     rating: 5,
     image:
-      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=160&q=80&auto=format&fit=crop&crop=faces',
+      'Amruta_Subhash_2.jpg',
   },
   {
     id: 2,
-    quote:
-      'The team handled our 8,000-attendee festival with calm precision. Stagecraft, hospitality, audio — everything held up. We will work with them every year.',
-    name: 'Vikram Patil',
-    role: 'CEO, Pune Cultural Society',
+    quote: 'Folk Aakhyan’s musical journey was engaging and beautifully presented. Please continue organizing such meaningful programs and keep giving us opportunities to experience such performances.',
+    name: 'Sumeet Pusawale',
+    role: 'Actor',
     rating: 5,
     image:
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&q=80&auto=format&fit=crop&crop=faces',
+      'Actor_Sumeet_Pusawale.png',
   },
   {
     id: 3,
     quote:
-      'Their documentary on Maharashtra’s folk traditions is the kind of work India needs more of. Deeply researched, beautifully shot, respectfully told.',
-    name: 'Riya Nair',
-    role: 'Programming Lead, OTT Platform',
+      'After the show, even though everything became calm, the impact stayed with everyone. Some participants had disabilities, yet they joined wholeheartedly and enjoyed every moment with great spirit. sWatching them dance with music was truly overwhelming for us. Our shows usually last around 2.5 to 3 hours, but during this performance, we didn’t even realize how time passed — it extended to 3.5 to 4 hours because of the incredible energy and involvement',
+    name: 'Team – Folk Aakan!',
+    role: '',
     rating: 5,
-    image:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=160&q=80&auto=format&fit=crop&crop=faces',
+    image:'folk-akhyan.jpg',
+  },
+    {
+    id: 4,
+    quote: 'It was truly heartwarming to witness Folk Aakhyan’s show. Seeing all the children participate with such joy and excitement, coming together as one, brought immense happiness.',
+    name: 'Sanadesh Kulkarni',
+    role: 'Actor',
+    rating: 5,
+    image:'Sanadesh_Kulkarni.jpg',
   },
 ];

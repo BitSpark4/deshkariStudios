@@ -26,9 +26,9 @@ export default function TestimonialsSection() {
         className="container-x"
       >
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <SectionLabel>Client Reviews</SectionLabel>
+          <SectionLabel> Reviews</SectionLabel>
           <h2 className="text-h2 text-heading font-rubik font-bold">
-            Let's See Our Clients'<br />Awesome Reviews
+            Let's See Our'<br />Awesome Reviews
           </h2>
         </div>
 
