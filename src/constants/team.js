@@ -8,22 +8,21 @@ export const teamMembers = [
     alt: 'Portrait of Aniket Lad',
     visible: true,
     socials: {
-      instagram: 'https://instagram.com',
-      linkedin: 'https://linkedin.com',
-      facebook: 'https://facebook.com',
+      instagram: 'https://www.instagram.com/aniketrameshlad?igsh=MTBtOWt4N2RkcGl3aQ%3D%3D&utm_source=qr',
+      linkedin: 'https://www.linkedin.com/in/aniket-ramesh-lad-773031266',
+      facebook: 'https://www.facebook.com/share/1Jxs1mFbGL/?mibextid=wwXIfr',
     },
   },
   {
-    name: 'Priya Joshi',
+    name: 'Vishal Bhurke',
     role: 'Co-Founder & Creative Director',
-    image:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80&auto=format&fit=crop&crop=faces',
-    alt: 'Portrait of Priya Joshi',
+    image:'vishal_bhurke_profile.png',
+    alt: 'Portrait of Vishal Bhurke',
     visible: true,
     socials: {
       instagram: 'https://instagram.com',
-      linkedin: 'https://linkedin.com',
-      facebook: 'https://facebook.com',
+      linkedin: 'https://www.linkedin.com/in/vishal-bhurke/',
+      facebook: 'https://www.facebook.com/share/1FdDAw16Np/',
     },
   },
   {
