@@ -65,5 +65,5 @@ export const pageHeroImages = {
   contact: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=80&auto=format&fit=crop',
   productions: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1920&q=80&auto=format&fit=crop',
   events: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1920&q=80&auto=format&fit=crop',
-  films: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1920&q=80&auto=format&fit=crop',
+  films: 'Film-header.jpg',
 };
