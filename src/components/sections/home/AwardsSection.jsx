@@ -131,7 +131,7 @@ function AwardPosterCard({ aw }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
-    <div className="bg-black p-4 pb-6 rounded-[34px] shadow-2xl relative w-[320px] shrink-0 snap-start select-none border-2 border-[#B8860B]/85 flex flex-col justify-between items-center transition-all duration-300 hover:shadow-[0_12px_32px_rgba(184,134,11,0.35)] hover:scale-[1.01] min-h-[490px] overflow-hidden">
+    <div className="bg-black p-4 pb-6 rounded-[34px] shadow-2xl relative w-[320px] shrink-0 snap-start select-none border-2 border-[#B8860B]/85 flex flex-col justify-between items-center transition-all duration-300 hover:shadow-[0_12px_32px_rgba(184,134,11,0.35)] hover:scale-[1.01] min-h-[432px] overflow-hidden">
       
       {/* Top Divider Row - Saffron lines with centered title text */}
       <div className="flex items-center justify-center gap-2 w-full mt-1 mb-4 px-2">
