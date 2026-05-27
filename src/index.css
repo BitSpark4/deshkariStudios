@@ -229,3 +229,28 @@
     border: 0;
   }
 }
+
+/* Custom Thin Scrollbar for Horizontal Snapping Containers */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(184, 134, 11, 0.4) rgba(255, 255, 255, 0.03);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(184, 134, 11, 0.4);
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(184, 134, 11, 0.8);
+}

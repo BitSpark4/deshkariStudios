@@ -4,6 +4,7 @@ import PartnersStrip from '../components/sections/home/PartnersStrip.jsx';
 import VideoSection from '../components/sections/home/VideoSection.jsx';
 import ServicesSection from '../components/sections/home/ServicesSection.jsx';
 import GallerySection from '../components/sections/home/GallerySection.jsx';
+import AwardsSection from '../components/sections/home/AwardsSection.jsx';
 import TeamSection from '../components/sections/home/TeamSection.jsx';
 import TestimonialsSection from '../components/sections/home/TestimonialsSection.jsx';
 // import StatsSection — Achievements section hidden in v2; component file kept for future use.
@@ -20,6 +21,7 @@ export default function Home() {
       <VideoSection />
       <ServicesSection />
       <GallerySection />
+      <AwardsSection />
       <TeamSection />
       <TestimonialsSection />
       <NewsletterSection />
