@@ -28,10 +28,10 @@ export const footerServices = [
 ];
 
 export const socials = [
-  { label: 'Facebook',  href: 'https://facebook.com',  icon: 'Facebook',  visible: true },
-  { label: 'Twitter',   href: 'https://twitter.com',   icon: 'Twitter',   visible: true },
-  { label: 'Instagram', href: 'https://instagram.com', icon: 'Instagram', visible: true },
-  { label: 'YouTube',   href: 'https://youtube.com',   icon: 'Youtube',   visible: false }, // removed per v2
+  { label: 'Facebook',  href: 'https://www.facebook.com/share/17q4cFhTea/',  icon: 'Facebook',  visible: true },
+  // { label: 'Twitter',   href: 'https://twitter.com',   icon: 'Twitter',   visible: true },
+  { label: 'Instagram', href: 'https://www.instagram.com/deshkaristudios?igsh=c2hvano3eWx2bW96', icon: 'Instagram', visible: true },
+  // { label: 'YouTube',   href: 'https://youtube.com',   icon: 'Youtube',   visible: false }, // removed per v2
 ];
 
 export const contactInfo = {
